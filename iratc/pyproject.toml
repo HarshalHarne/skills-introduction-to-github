@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iratc"
+version = "0.1.0"
+description = "Indian Railway Automated Traffic Control - backend"
+readme = "README.md"
+authors = [{name = "IRATC Team"}]
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.111.0",
+  "uvicorn[standard]>=0.30.0",
+  "pydantic>=2.8.2",
+  "pydantic-settings>=2.4.0",
+  "orjson>=3.10.7",
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "networkx>=3.3",
+  "ortools>=9.10",
+  "scipy>=1.13",
+  "tenacity>=9.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2",
+  "httpx>=0.27",
+  "ruff>=0.6.8",
+  "mypy>=1.11.2",
+  "types-requests",
+  "pytest-asyncio>=0.23",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.setuptools.packages.find]
+include = ["iratc*"]
